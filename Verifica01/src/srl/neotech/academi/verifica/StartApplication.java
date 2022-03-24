@@ -14,6 +14,7 @@ public class StartApplication {
 		int velocitaIniziale= s.nextInt();
 		
 		
+		int b=98;
 		String risultatoDelDecollo= falcon.decolla(velocitaIniziale);
 		System.out.println(risultatoDelDecollo);
 		System.out.println("Impostare il numero di manovre:");
