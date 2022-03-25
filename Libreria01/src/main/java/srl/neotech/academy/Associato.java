@@ -39,7 +39,10 @@ public class Associato {
 		IdLibriPresi = idLibriPresi;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return this.getIdAssociato()+"--"+this.getNominativo()+"--"+this.getStato();
+	}
 
 
 

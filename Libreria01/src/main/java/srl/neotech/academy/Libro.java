@@ -19,28 +19,32 @@ public class Libro {
 		this.idLibro = idLibro;
 	}
 	public String getTitolo() {
-		return "titolo libro "+titolo;
+		return "titolo libro: "+titolo;
 	}
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
 	public String getAutore() {
-		return "nome autore "+autore;
+		return "autore libro: "+autore;
 	}
 	public void setAutore(String autore) {
 		this.autore = autore;
 	}
-	public String getGenere() {
-		return "nome genere" +genere;
+	public Enum<Genere> getGenere() {
+		return genere;
 	}
 	public void setGenere(Genere genere) {
 		this.genere = genere;
 	}
 	public String getScaffale() {
-		return "scaffale"+ scaffale;
+		return "scaffale: "+ scaffale;
 	}
 	public void setScaffale(String scaffale) {
 		this.scaffale = scaffale;
+	}
+	@Override
+	public String toString() {
+		return this.getIdLibro()+"--"+this.getTitolo()+"--"+this.getAutore()+"--"+this.getGenere()+"--"+this.getScaffale();
 	}
 	
 	
