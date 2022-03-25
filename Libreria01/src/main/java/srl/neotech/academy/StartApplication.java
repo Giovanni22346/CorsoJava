@@ -42,6 +42,7 @@ public class StartApplication extends Biblioteca {
 		libro.setScaffale(generator.generate(5));
 	  	biblioteca.getListaLibri().add(libro);
 	
+	String a=null;
 	
 	}	
 // aggiunta di un associato nell lista associati	IA  	
