@@ -30,7 +30,7 @@ public class StartApplication extends Biblioteca {
 		  
 		 NameGenerator nameGenerator = new NameGenerator();
 		 
-		  
+	  
 	
 	for (int i=0;i<=100;i++) {
 		Libro libro = new Libro();
@@ -39,8 +39,15 @@ public class StartApplication extends Biblioteca {
 		libro.setTitolo(generator.generate(10));
 		libro.setAutore(nameGenerator.generateName().toString());
 		libro.setScaffale(generator.generate(5));
-		biblioteca.getListaLibri().add(libro);
+	  	biblioteca.getListaLibri().add(libro);
 	
+	for (int j=0;j<=100;j++ ) {
+		Associato associato = new Associato();
+		associato.setNominativo(generator.generate(15));
+		associato.setIdAssociato(j);
+		associato.setStato(Stato.ATTIVO);
+		associato.setIdLibriPresi(null);
+		biblioteca.getListaAssociati().add(associato);
 		
 		
 		
@@ -104,8 +111,8 @@ public class StartApplication extends Biblioteca {
      		
 			}
 	}
-	}
-	}
+	
+	
 	
 	
 	
