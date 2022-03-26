@@ -113,7 +113,8 @@ public class StartApplication extends Biblioteca {
      			libro.setScaffale(generator.generate(5));
      			biblioteca.getListaLibri().add(libro);
      			controllo ="CL";
-   				System.out.println("E' stato aggiunto un libro:");
+     			System.out.println(libro);
+     			System.out.println("E' stato aggiunto un libro:");
      			break; 
     
      		case  "XL":
@@ -131,7 +132,6 @@ public class StartApplication extends Biblioteca {
     
      		case "LL":  
      			scelta= "LL Lista Libri";
-     		
      			
     			Integer lunghezzaArrayLibri=biblioteca.getListaLibri().size();
     			controllo="LL";
