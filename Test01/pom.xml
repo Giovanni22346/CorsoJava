@@ -10,6 +10,16 @@
 <maven.compiler.target>16</maven.compiler.target>
 </properties>
   
+<dependencies>  
+  <!-- https://mvnrepository.com/artifact/org.kohsuke/wordnet-random-name -->
+<dependency>
+    <groupId>org.kohsuke</groupId>
+    <artifactId>wordnet-random-name</artifactId>
+    <version>1.5</version>
+</dependency>
+  
+</dependencies>  
+  
   
   
   
