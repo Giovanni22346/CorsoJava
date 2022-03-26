@@ -8,7 +8,8 @@ public class StartApplication {
 		// TODO Auto-generated method stub
 
 		RandomNameGenerator rnd = new RandomNameGenerator(0);
-		
+	
+		System.out.println(rnd);
 	}
 
 }
