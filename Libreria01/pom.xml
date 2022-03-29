@@ -33,6 +33,17 @@
     <artifactId>name-machine</artifactId>
     <version>1.0.0</version>
 </dependency>
+
+<dependency>
+    <groupId>org.kohsuke</groupId>
+    <artifactId>wordnet-random-name</artifactId>
+    <version>1.5</version>
+</dependency>
+
+
+
+
+
   
   
   
