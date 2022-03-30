@@ -11,8 +11,7 @@ public class Passeggero {
 	 private Boolean hachampagne;
 	 private Boolean hagiornale;
 	 private StatoPasseggero statoPasseggero;
-	 
-	 
+
 	 
 	 
 	 
@@ -70,8 +69,10 @@ public class Passeggero {
 	  
 	@Override
 	public String toString(){
-		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getClasseViaggiatore()+"--"+this.getHaBagagli()+"--"+this.getHafiore()+"--"+this.getHagiornale();
+		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getHaBagagli()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale();
 	}
+	
+	
 	public StatoPasseggero getStatoPasseggero() {
 		return statoPasseggero;
 	}

@@ -6,18 +6,29 @@ public class Aeroporto {
 
 	//Attributi Aeroporto
 
-	private ArrayList <Aereo> listaAerei = new ArrayList <Aereo>();
+	private ArrayList <Aereo> listaAereiInPartenza = new ArrayList <Aereo>();
+	private ArrayList <Aereo> listaAereiInArrivo = new ArrayList <Aereo>();
     private ArrayList <Passeggero> listaPasseggeri = new ArrayList<Passeggero>();	
 	private Integer raggioDiAzione;
 	
 
 	
-	public ArrayList<Aereo> getListaAerei() {
-		return listaAerei;
+	
+
+	public ArrayList<Aereo> getListaAereiInPartenza() {
+		return listaAereiInPartenza;
 	}
 
-	public void setListaAerei(ArrayList<Aereo> listaAerei) {
-		this.listaAerei = listaAerei;
+	public void setListaAereiInPartenza(ArrayList<Aereo> listaAereiInPartenza) {
+		this.listaAereiInPartenza = listaAereiInPartenza;
+	}
+
+	public ArrayList<Aereo> getListaAereiInArrivo() {
+		return listaAereiInArrivo;
+	}
+
+	public void setListaAereiInArrivo(ArrayList<Aereo> listaAereiInArrivo) {
+		this.listaAereiInArrivo = listaAereiInArrivo;
 	}
 
 	public ArrayList<Passeggero> getListaPasseggeri() {
