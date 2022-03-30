@@ -7,15 +7,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 
 
-
-
-
 public class StartApplication {
 
 	public static void main(String[] args) {
 
-		
-		
 		
 		Aeroporto aeroporto = new Aeroporto();
 		ArrayList <Aereo> listaAereiInPartenza = new ArrayList <Aereo>();
@@ -60,6 +55,7 @@ public class StartApplication {
 		passeggero.setGenere(Genere.generateRandomGenere());
 		passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 99 + 1));
 		passeggero.setStatoPasseggero(StatoPasseggero.generateRandomStatoPasseggero());
+		passeggero.setClasseViaggiatore(ClasseViaggiatore.generateRandomClasseViaggiatore());
 		passeggero.setHaBagagli(Math.random()<0.5);
 		passeggero.setHachampagne(Math.random() < 0.5);
 		passeggero.setHafiore(Math.random() <0.5);

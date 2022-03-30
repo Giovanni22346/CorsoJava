@@ -5,7 +5,7 @@ public class Passeggero {
 	 private Integer idUnivoco;
 	 private Genere genere;
 	 private Integer eta;
-	 private ClassePasseggero classeViaggiatore;
+	 private ClasseViaggiatore classeViaggiatore;
 	 private Boolean haBagagli;
 	 private Boolean hafiore;
 	 private Boolean hachampagne;
@@ -15,6 +15,18 @@ public class Passeggero {
 	 
 	 
 	 
+	public ClasseViaggiatore getClasseViaggiatore() {
+		return classeViaggiatore;
+	}
+	public void setClasseViaggiatore(ClasseViaggiatore classeViaggiatore) {
+		this.classeViaggiatore = classeViaggiatore;
+	}
+	public StatoPasseggero getStatoPasseggero() {
+		return statoPasseggero;
+	}
+	public void setStatoPasseggero(StatoPasseggero statoPasseggero) {
+		this.statoPasseggero = statoPasseggero;
+	}
 	public Integer getIdUnivoco() {
 		return idUnivoco;
 	}
@@ -33,12 +45,7 @@ public class Passeggero {
 	public void setEta(Integer eta) {
 		this.eta = eta;
 	}
-	public ClassePasseggero getClasseViaggiatore() {
-		return classeViaggiatore;
-	}
-	public void setClasseViaggiatore(ClassePasseggero classeViaggiatore) {
-		this.classeViaggiatore = classeViaggiatore;
-	}
+	
 	public Boolean getHaBagagli() {
 		return haBagagli;
 	}
@@ -69,26 +76,13 @@ public class Passeggero {
 	  
 	@Override
 	public String toString(){
-		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getHaBagagli()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale();
+		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getClasseViaggiatore()+"--"+this.getHaBagagli()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale();
 	}
 	
 	
-	public StatoPasseggero getStatoPasseggero() {
-		return statoPasseggero;
-	}
-	public void setStatoPasseggero(StatoPasseggero statoPasseggero) {
-		this.statoPasseggero = statoPasseggero;
-	}
-	public void setGenere(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void setClassePasseggero(ClassePasseggero generateRandomClassePasseggero) {
-		// TODO Auto-generated method stub
-		
 	}
 	
-}
+
 
 
 
