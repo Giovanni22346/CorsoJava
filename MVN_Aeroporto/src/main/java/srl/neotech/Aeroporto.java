@@ -52,14 +52,14 @@ public class Aeroporto {
 	
 	public Aereo atterra(Aereo aereo) {
 	
-		aereo.setStato(StatoAereo.IN_AVVICINAMENTO);
+		aereo.setStato(StatoAereo.ATTERRATO);
 		return aereo;
 		
 		
 	}
 	
 	public Aereo decolla(Aereo aereo) {
-		aereo.setStato(StatoAereo.IN_PARTENZA);
+		aereo.setStato(StatoAereo.DECOLLATO);
 		return aereo;
 		
 		
@@ -67,6 +67,16 @@ public class Aeroporto {
 	
 	public Passeggero checkin (Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.IN_CHECKIN);
+	
+		if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.EXCELSIOR)) {
+			passeggero.setHachampagne(true);
+		} if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.BUSINEES)) {
+			passeggero.setHagiornale(true);
+		} if (passeggero.getGenere().equals(Genere.FEMMINA)) {
+			passeggero.setHafiore(true);
+		}  if (passeggero.getEta()<(12)) {  	
+	         passeggero.setHaBagagli(false);  		
+		}
 		return passeggero;
 		
 	}	
@@ -74,6 +84,15 @@ public class Aeroporto {
 	
 	public Passeggero checkout (Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.IMBARCATO );
+		if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.EXCELSIOR)) {
+			passeggero.setHachampagne(true);
+		} if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.BUSINEES)) {
+			passeggero.setHagiornale(true);
+		} if (passeggero.getGenere().equals(Genere.FEMMINA)) {
+			passeggero.setHafiore(true);
+		}  if (passeggero.getEta()<(12)) {  	
+	         passeggero.setHaBagagli(false);  		
+		}
 		return passeggero;
 		
 	}

@@ -20,6 +20,10 @@ public class StartApplication {
 		
 		Aereo aereoInPartenza = new Aereo();
 		Aereo aereoInArrivo = new Aereo();
+		aereoInPartenza.setVelocita(0);
+		aereoInPartenza.setDistanzaDallaAeroporto(0);
+		aeroporto.setRaggioDiAzione(0);
+		
 		
 		for (int i=1;i<=100;i++) {
 		aereoInPartenza = new Aereo();
@@ -27,9 +31,9 @@ public class StartApplication {
 		aereoInPartenza.setStato(StatoAereo.IN_PARTENZA);
 		aereoInPartenza.setOrario(ThreadLocalRandom.current().nextInt(1, 130 + 1));
 		aereoInPartenza.setCompagniaAerea("ATA");
-		aereoInPartenza.setCostruttore("Airbus");
-		aereoInPartenza.setCodiceModello("A380");
-		aereoInPartenza.setCapienzaNumPasseggeri(475);
+		aereoInPartenza.getModello().setCostruttore("Airbus");
+		aereoInPartenza.getModello().setCodiceModello("A380");
+		aereoInPartenza.getModello().setCapienzaNumPasseggeri(475);
 		aereoInPartenza.setDistanzaDallaAeroporto(ThreadLocalRandom.current().nextInt(1, 500 + 1));
 		aereoInPartenza.setVelocita(ThreadLocalRandom.current().nextInt(1, 100 + 1));
 		aeroporto.getListaAereiInPartenza().add(aereoInPartenza);
@@ -40,9 +44,9 @@ public class StartApplication {
 		aereoInArrivo.setStato(StatoAereo.IN_AVVICINAMENTO);
 		aereoInArrivo.setOrario(ThreadLocalRandom.current().nextInt(1, 130 + 1));
 		aereoInArrivo.setCompagniaAerea("JAL");
-		aereoInArrivo.setCostruttore("BOEING");
-		aereoInArrivo.setCodiceModello("MD-80");
-		aereoInArrivo.setCapienzaNumPasseggeri(290);
+		aereoInArrivo.getModello().setCostruttore("BOEING");
+		aereoInArrivo.getModello().setCodiceModello("MD-80");
+		aereoInArrivo.getModello().setCapienzaNumPasseggeri(290);
 		aereoInArrivo.setDistanzaDallaAeroporto(ThreadLocalRandom.current().nextInt(1, 500 + 1));
 		aereoInArrivo.setVelocita(ThreadLocalRandom.current().nextInt(1, 100 + 1));
 		aeroporto.getListaAereiInArrivo().add(aereoInArrivo);	
@@ -54,21 +58,25 @@ public class StartApplication {
 		passeggero.setIdUnivoco(t);
 		passeggero.setGenere(Genere.generateRandomGenere());
 		passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 99 + 1));
-		passeggero.setStatoPasseggero(StatoPasseggero.generateRandomStatoPasseggero());
-		passeggero.setClasseViaggiatore(ClasseViaggiatore.generateRandomClasseViaggiatore());
+		passeggero.setStatoPasseggero(StatoPasseggero.IN_CHECKIN);
+		passeggero.setClasseViaggiatore(ClasseViaggiatore.generateRandomClasseViaggiatore());       
 		passeggero.setHaBagagli(Math.random()<0.5);
 		passeggero.setHachampagne(Math.random() < 0.5);
 		passeggero.setHafiore(Math.random() <0.5);
 		passeggero.setHagiornale(Math.random()<0.5);
-		aeroporto.getListaPasseggeri().add(passeggero);
-		
-			
-		}
-            
+		if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.EXCELSIOR)) {
+			passeggero.setHachampagne(true);
+		} if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.BUSINEES)) {
+			passeggero.setHagiornale(true);
+		} if (passeggero.getGenere().equals(Genere.FEMMINA)) {
+			passeggero.setHafiore(true);
+		}  if (passeggero.getEta()<(12)) {  	
+	         passeggero.setHaBagagli(false);  		
+		} aeroporto.getListaPasseggeri().add(passeggero);	
+		}            
 		System.out.println(aeroporto.getListaAereiInPartenza());
 		System.out.println(aeroporto.getListaAereiInArrivo());
 		System.out.println(aeroporto.getListaPasseggeri());
-
 	}
 }
 	

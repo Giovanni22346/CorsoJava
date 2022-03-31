@@ -1,7 +1,7 @@
 package srl.neotech;
 
 
-public class Aereo extends Modello{
+public class Aereo {
 
 	private Integer idUnivoco;
 	private Integer orario;
@@ -54,58 +54,6 @@ public class Aereo extends Modello{
 
 
 
-	@Override
-	public String getCostruttore() {
-		// TODO Auto-generated method stub
-		return super.getCostruttore();
-	}
-
-
-
-
-	@Override
-	public void setCostruttore(String costruttore) {
-		// TODO Auto-generated method stub
-		super.setCostruttore(costruttore);
-	}
-
-
-
-
-	@Override
-	public String getCodiceModello() {
-		// TODO Auto-generated method stub
-		return super.getCodiceModello();
-	}
-
-
-
-
-	@Override
-	public void setCodiceModello(String codiceModello) {
-		// TODO Auto-generated method stub
-		super.setCodiceModello(codiceModello);
-	}
-
-
-
-
-	@Override
-	public Integer getCapienzaNumPasseggeri() {
-		// TODO Auto-generated method stub
-		return super.getCapienzaNumPasseggeri();
-	}
-
-
-
-
-	@Override
-	public void setCapienzaNumPasseggeri(Integer capienzaNumPasseggeri) {
-		// TODO Auto-generated method stub
-		super.setCapienzaNumPasseggeri(capienzaNumPasseggeri);
-	}
-
-
 
 
 	public Integer getVelocita() {
@@ -152,7 +100,7 @@ public class Aereo extends Modello{
 
 	public Aereo() {
 		
-		modello = new Modello();
+		setModello(new Modello());
 		
 	}
 	
@@ -193,7 +141,21 @@ public class Aereo extends Modello{
 
 	@Override
 	public String toString() {
-	return this.getIdUnivoco()+"--"+this.getStato()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getCostruttore()+"--"+this.getCodiceModello()+"--"+this.getCapienzaNumPasseggeri()+"--"+this.getDistanzaDallaAeroporto()+"--"+this.getVelocita();
+	return this.getIdUnivoco()+"--"+this.getStato()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getModello().getCostruttore()+"--"+this.getModello().getCodiceModello()+"--"+this.getModello().getCapienzaNumPasseggeri()+"--"+this.getDistanzaDallaAeroporto()+"--"+this.getVelocita();
+	}
+
+
+
+
+	public Modello getModello() {
+		return modello;
+	}
+
+
+
+
+	public void setModello(Modello modello) {
+		this.modello = modello;
 	}
 
 
