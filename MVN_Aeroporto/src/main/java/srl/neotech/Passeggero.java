@@ -76,7 +76,7 @@ public class Passeggero {
 	  
 	@Override
 	public String toString(){
-		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getClasseViaggiatore()+"--"+this.getHaBagagli()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale();
+		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getClasseViaggiatore()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale()+"--"+this.getHaBagagli();
 	}
 	
 	

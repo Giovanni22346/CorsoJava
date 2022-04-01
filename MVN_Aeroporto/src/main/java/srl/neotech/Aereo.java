@@ -1,17 +1,51 @@
 package srl.neotech;
 
+import java.util.ArrayList;
 
-public class Aereo {
+public class Aereo extends Aeroporto{
 
 	private Integer idUnivoco;
-	private Integer orario;
+	private int orario;
 	private String compagniaAerea;
 	private Modello modello;
 	private Integer velocita;
-	private Integer distanzaDallaAeroporto;
+	private Integer distanzaDallAeroporto;
 	private StatoAereo stato;
+	private ArrayList<Passeggero>passeggeriAereo=new ArrayList<Passeggero>();
 	
 	
+	
+		
+	
+	
+	public Integer getDistanzaDallAeroporto() {
+		return distanzaDallAeroporto;
+	}
+
+
+
+
+	public void setDistanzaDallAeroporto(Integer distanzaDallAeroporto) {
+		this.distanzaDallAeroporto = distanzaDallAeroporto;
+	}
+
+
+
+
+	public ArrayList<Passeggero> getPasseggeriAereo() {
+		return passeggeriAereo;
+	}
+
+
+
+
+	public void setPasseggeriAereo(ArrayList<Passeggero> passeggeriAereo) {
+		this.passeggeriAereo = passeggeriAereo;
+	}
+
+
+
+
 	public Integer getIdUnivoco() {
 		return idUnivoco;
 	}
@@ -26,14 +60,14 @@ public class Aereo {
 
 
 
-	public Integer getOrario() {
+	public int getOrario() {
 		return orario;
 	}
 
 
 
 
-	public void setOrario(Integer orario) {
+	public void setOrario(int orario) {
 		this.orario = orario;
 	}
 
@@ -56,30 +90,38 @@ public class Aereo {
 
 
 
-	public Integer getVelocita() {
-		return velocita;
-	}
+	
+		
+//		if (velocita ==0 && distanzaDallAeroporto ==0);
+//		setStato(StatoAereo.IN_PARTENZA);
+//		velocita++;
+//		
+//		
+//		if (distanzaDallAeroporto >0 && distanzaDallAeroporto<getRaggioDiAzione());
+//		setStato(StatoAereo.DECOLLATO);
+//		velocita++;
+//		
+//		if (getRaggioDiAzione()>=0 && getRaggioDiAzione() > distanzaDallAeroporto);
+//		setStato(StatoAereo.IN_AVVICINAMENTO);
+//		velocita--;
+//		
+//		if (distanzaDallAeroporto >getRaggioDiAzione());
+//		setStato(StatoAereo.FUORI_SPAZIO_AEREO);
+//		velocita++;
+//		
+		
+		Passeggero passeggeriAereo1=new Passeggero();
+		
+	
+	
+	
+	
 
 
 
 
-	public void setVelocita(Integer velocita) {
-		this.velocita = velocita;
-	}
 
 
-
-
-	public Integer getDistanzaDallaAeroporto() {
-		return distanzaDallaAeroporto;
-	}
-
-
-
-
-	public void setDistanzaDallaAeroporto(Integer distanzaDallaAeroporto) {
-		this.distanzaDallaAeroporto = distanzaDallaAeroporto;
-	}
 
 
 
@@ -100,48 +142,22 @@ public class Aereo {
 
 	public Aereo() {
 		
-		setModello(new Modello());
+		modello =new Modello();
 		
 	}
 	
 	
 	
-	
-	public String inPartenza(Integer distanzaDallAeroporto, Integer velocita) {
-		this.velocita=velocita-distanzaDallAeroporto;
-		return "Aereo in Partenza!" + velocita;
-		
-		
-	}
-	
-	public String decollato(Integer distanzaDallAeroporto, Integer velocita) {
-		this.velocita=velocita+velocita+distanzaDallAeroporto;
-		return "Aereo decollato!"+ velocita;
 		
 		
 		
-	}
-	
-	public String inAvvicinamento(Integer distanzaDallAreoporto, Integer velocita) {
-		this.velocita= velocita-velocita-distanzaDallAreoporto;
-		return "Aereo in Avvicinamento!"+velocita;
-		
-	}
-	
-	public String atterrato(Integer distanzaDallAreoporto, Integer velocita) {
-		this.velocita= velocita-distanzaDallAreoporto;
-		return "Aereo Atterrato!" + velocita;
-		
-		
-		
-		
-	} 
+	 
 	
 	
 
 	@Override
 	public String toString() {
-	return this.getIdUnivoco()+"--"+this.getStato()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getModello().getCostruttore()+"--"+this.getModello().getCodiceModello()+"--"+this.getModello().getCapienzaNumPasseggeri()+"--"+this.getDistanzaDallaAeroporto()+"--"+this.getVelocita();
+	return this.getIdUnivoco()+"--"+this.getStato()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getModello().getCostruttore()+"--"+this.getModello().getCodiceModello()+"--"+this.getModello().getCapienzaNumPasseggeri()+"--"+this.getPasseggeriAereo()+"--"+this.getDistanzaDallAeroporto()+"--"+this.getVelocita();
 	}
 
 
@@ -160,9 +176,24 @@ public class Aereo {
 
 
 
+
+	public Integer getVelocita() {
+		return velocita;
 	}
 
 
+
+
+	public void setVelocita(Integer velocita) {
+		this.velocita = velocita;
+	
+
+
+
+	
+
+	}
+}
 
 
 			
