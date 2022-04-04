@@ -2,42 +2,29 @@ package srl.neotech;
 
 public class Passeggero {
 
-	 private Integer idUnivoco;
-	 private Genere genere;
-	 private Integer eta;
-	 private ClasseViaggiatore classeViaggiatore;
-	 private Boolean haBagagli;
-	 private Boolean hafiore;
-	 private Boolean hachampagne;
-	 private Boolean hagiornale;
-	 private StatoPasseggero statoPasseggero;
-
-	 
-	 
-	 
-	public ClasseViaggiatore getClasseViaggiatore() {
-		return classeViaggiatore;
+	private Integer idUnivocoPasseggero;
+	private SessoPasseggero sessoPasseggero;
+	private Integer eta;
+	private ClassePasseggero classePasseggero;
+	private Boolean haBagagli;
+	private Boolean haChampagne;
+	private Boolean haFiore;
+	private Boolean haGiornale;
+	private StatoPasseggero statoPasseggero;
+	
+	
+	
+	public Integer getIdUnivocoPasseggero() {
+		return idUnivocoPasseggero;
 	}
-	public void setClasseViaggiatore(ClasseViaggiatore classeViaggiatore) {
-		this.classeViaggiatore = classeViaggiatore;
+	public void setIdUnivocoPasseggero(Integer idUnivocoPasseggero) {
+		this.idUnivocoPasseggero = idUnivocoPasseggero;
 	}
-	public StatoPasseggero getStatoPasseggero() {
-		return statoPasseggero;
+	public SessoPasseggero getSessoPasseggero() {
+		return sessoPasseggero;
 	}
-	public void setStatoPasseggero(StatoPasseggero statoPasseggero) {
-		this.statoPasseggero = statoPasseggero;
-	}
-	public Integer getIdUnivoco() {
-		return idUnivoco;
-	}
-	public void setIdUnivoco(Integer idUnivoco) {
-		this.idUnivoco = idUnivoco;
-	}
-	public Genere getGenere() {
-		return genere;
-	}
-	public void setGenere(Genere genere) {
-		this.genere = genere;
+	public void setSessoPasseggero(SessoPasseggero sessoPasseggero) {
+		this.sessoPasseggero = sessoPasseggero;
 	}
 	public Integer getEta() {
 		return eta;
@@ -45,45 +32,58 @@ public class Passeggero {
 	public void setEta(Integer eta) {
 		this.eta = eta;
 	}
+	public ClassePasseggero getClassePasseggero() {
+		return classePasseggero;
+	}
+	public void setClassePasseggero(ClassePasseggero classePasseggero) {
+		this.classePasseggero = classePasseggero;
+	}
+	
+	
+	
 	
 	public Boolean getHaBagagli() {
+		
+		
 		return haBagagli;
+		 
 	}
 	public void setHaBagagli(Boolean haBagagli) {
-		this.haBagagli = haBagagli;
-	}
-	public Boolean getHafiore() {
-		return hafiore;
-	}
-	public void setHafiore(Boolean hafiore) {
-		this.hafiore = hafiore;
-	}
-	public Boolean getHachampagne() {
-		return hachampagne;
-	}
-	public void setHachampagne(Boolean hachampagne) {
-		this.hachampagne = hachampagne;
-	}
-	public Boolean getHagiornale() {
-		return hagiornale;
-	}
-	public void setHagiornale(Boolean hagiornale) {
-		this.hagiornale = hagiornale;
-	}
-	
 		
+		this.haBagagli = haBagagli ;
+	}
+	public Boolean getHaChampagne() {
+		return  haChampagne;
+	}
+	public void setHaChampagne(Boolean haChampagne) {
+		this.haChampagne = haChampagne;
+	}
+	public Boolean getHaFiore() {
+		return haFiore;
+	}
+	public void setHaFiore(Boolean haFiore) {
+		this.haFiore = haFiore;
+	}
+	public Boolean getHaGiornale() {
+		return haGiornale;
+	}
+	public void setHaGiornale(Boolean haGiornale) {
+		this.haGiornale =haGiornale;
+	}
+	public StatoPasseggero getStatoPasseggero() {
+		return statoPasseggero;
+	}
+	public void setStatoPasseggero(StatoPasseggero statoPasseggero) {
+		this.statoPasseggero = statoPasseggero;
+	}
+	 
 	
-	  
+	
 	@Override
 	public String toString(){
-		return this.getIdUnivoco()+"--"+this.getGenere()+"--"+this.getEta()+"--"+this.getStatoPasseggero()+"--"+this.getClasseViaggiatore()+"--"+this.getHachampagne()+"--"+this.getHafiore()+"--"+this.getHagiornale()+"--"+this.getHaBagagli();
+	return "[ID]:"+this.getIdUnivocoPasseggero()+"[SESSO PASSEGGERO]:"+this.getSessoPasseggero()+"[ETÀ]:"+this.getEta()+"[CLASSE PASSEGGERO]:"+
+	this.getClassePasseggero()+"[HA BAGAGLI (T/F)]:"+this.getHaBagagli()+"[HA CHAMPAGNE (T/F)]:"+this.getHaChampagne()+"[HA FIORE (T/F)]:"
+	+this.getHaFiore()+"[HA GIORNALE (T/F)]:"+this.getHaGiornale()+"[STATO PASSEGGERO]:"+this.getStatoPasseggero();
 	}
 	
-	
-	}
-	
-
-
-
-
-
+}

@@ -2,141 +2,111 @@ package srl.neotech;
 
 import java.util.ArrayList;
 
-public class Aereo {
+public class Aereo{
 
 	private Integer idUnivoco;
-	private int orario;
-	private String compagniaAerea;
-	private Modello modello;
-	private Integer velocita;
-	private Integer distanzaDallAeroporto;
-	private StatoAereo stato;
+	private Integer orario;
+	private CompagniaAerea CompagniaAerea ;
+	private ModelloAereo modelloAereo;
 	private ArrayList<Passeggero>passeggeriAereo=new ArrayList<Passeggero>();
+	private Integer velocita;//da 1 a 10
+	private Integer distanzaDallAeroporto;//da 1 a 500
+	private StatoAereo statoAereo;
 	
-	
+	public Aereo() {
+		modelloAereo=new ModelloAereo();
 
-	public Modello getModello() {
-		return modello;
 	}
-		
 	
-
+	
 	public Integer getIdUnivoco() {
 		return idUnivoco;
 	}
-
-
 	public void setIdUnivoco(Integer idUnivoco) {
 		this.idUnivoco = idUnivoco;
 	}
-
-
-
-	public int getOrario() {
+	public Integer getOrario() {
 		return orario;
 	}
-
-
-
-	public void setOrario(int orario) {
+	public void setOrario(Integer orario) {
 		this.orario = orario;
 	}
+	
 
 
-
-	public String getCompagniaAerea() {
-		return compagniaAerea;
+	public ModelloAereo getModelloAereo() {
+		return modelloAereo;
 	}
-
-
-
-	public void setCompagniaAerea(String compagniaAerea) {
-		this.compagniaAerea = compagniaAerea;
+	public void setModelloAereo(ModelloAereo modello) {
+		this.modelloAereo = modelloAereo;
 	}
-
-
-
-	public Integer getVelocita() {
-		return velocita;
-	}
-
-
-
-	public void setVelocita(Integer velocita) {
-		this.velocita = velocita;
-	}
-
-
-
-	public Integer getDistanzaDallAeroporto() {
-		return distanzaDallAeroporto;
-	}
-
-
-
-	public void setDistanzaDallAeroporto(Integer distanzaDallAeroporto) {
-		this.distanzaDallAeroporto = distanzaDallAeroporto;
-	}
-
-
-
-
-	public StatoAereo getStato() {
-		return stato;
-	}
-
-
-	public void setStato(StatoAereo stato) {
-		this.stato = stato;
-	}
-
-
-
-
 	public ArrayList<Passeggero> getPasseggeriAereo() {
 		return passeggeriAereo;
 	}
-
-
-
-
 	public void setPasseggeriAereo(ArrayList<Passeggero> passeggeriAereo) {
 		this.passeggeriAereo = passeggeriAereo;
 	}
-
-
-
-
-
-
-	public void setModello(Modello modello) {
-		this.modello = modello;
+	public Integer getVelocita() {
+		return velocita;
 	}
-
-
-
-
-
+	public void setVelocita(Integer velocita) {
+		this.velocita = velocita+velocita;
+//		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.IN_PARTENZA);
+//			velocita++;
+//		}
+//		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
+//			setStatoAereo(StatoAereo.DECOLLATO);
+//			velocita++;
+//		}
+//		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
+//			velocita++;
+//		}
+//		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
+//			velocita--;
+//		}
+//		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
+//			setStatoAereo(StatoAereo.ATTERRATO);
+//			velocita--;
+//		}
+	}
+	public Integer getDistanzaDallAereoporto() {
+		return distanzaDallAeroporto;
+	}
+	public void setDistanzaDallAereoporto(Integer distanzaDallAereoporto) {
+		this.distanzaDallAeroporto =distanzaDallAereoporto;
+	}
+	public StatoAereo getStatoAereo() {
+		return statoAereo;
+	}
+	public void setStatoAereo(StatoAereo statoAereo) {
+		this.statoAereo = statoAereo;
+	}
+	
+	
 
 	@Override
 	public String toString() {
-	return this.getIdUnivoco()+"--"+this.getStato()+"--"+this.getOrario()+"--"+this.getCompagniaAerea()+"--"+this.getModello().getCostruttore()+"--"+this.getModello().getCodiceModello()+"--"+this.getModello().getCapienzaNumPasseggeri()+"--"+this.getDistanzaDallAeroporto()+"--"+this.getVelocita();
+	return "[ID]:"+this.getIdUnivoco()+"[ORARIO]:"+this.getOrario()+"[STATO]"+this.statoAereo+"[COMPAGNIA AEREA]:"+this.getCompagniaAerea()+"[COSTRUTTORE]:"+
+	this.getModelloAereo().getCostruttore()+"[CODICE MODELLO]:"+this.getModelloAereo().getCodiceModello()+"[CAPIENZA AEREO/PASSEGGERI]:"
+			+this.getModelloAereo().getCapienzaNumeroPasseggeri()+"[VELOCITÀ]:"+this.getVelocita()+"[DISTANZA DALL'AEREOPORTO]:"+this.getDistanzaDallAereoporto()+"--"+this.getPasseggeriAereo();
 	}
 
 
-
-	
-
+	public CompagniaAerea getCompagniaAerea() {
+		return CompagniaAerea;
 	}
 
 
-
-			
-		
-	
-
-
-		
+	public void setCompagniaAerea(CompagniaAerea compagniaAerea) {
+		this.CompagniaAerea = compagniaAerea;
+	}
 	
 	
-
+	
+	
+	
+	
+}

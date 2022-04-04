@@ -2,15 +2,15 @@ package srl.neotech;
 
 import java.util.Random;
 
-public enum ClasseViaggiatore {
+public enum ClassePasseggero {
 
-	BUSINEES,
+	BUSINESS,
 	EXCELSIOR,
 	TURISTA;
 	
 	
-	public static ClasseViaggiatore generateRandomClasseViaggiatore() {
-		 ClasseViaggiatore[]values=ClasseViaggiatore.values();
+	public static ClassePasseggero generateRandomPasseggero() {
+		 ClassePasseggero[]values=ClassePasseggero.values();
 		 int length=values.length;
 		 int randIndex=new Random().nextInt(length);
 		 return values [randIndex];
