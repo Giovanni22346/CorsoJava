@@ -1,6 +1,5 @@
 package srl.neotech;
 
-import java.util.ArrayList;
 
 public class Modello {
 

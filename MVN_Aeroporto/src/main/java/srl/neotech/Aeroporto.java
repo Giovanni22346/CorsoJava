@@ -47,23 +47,37 @@ public class Aeroporto {
 		this.raggioDiAzione = raggioDiAzione;
 	}
 
-	
-	
-	
-	public Aereo atterra(Aereo aereo) {
-	
-		aereo.setStato(StatoAereo.ATTERRATO);
-		return aereo;
 		
+		public Aereo atterra(Aereo aereo) {
+			
+			while (aereo.getDistanzaDallAeroporto()<this.raggioDiAzione) {
+				Integer distanzaAttualeAereo = aereo.getDistanzaDallAeroporto()-aereo.getVelocita();
+				aereo.setDistanzaDallAeroporto(distanzaAttualeAereo);
+				
+				}		
+				System.out.println("L'aereo:"+aereo.getIdUnivoco()+" è ATTERRATO");
+				aereo.setStato(StatoAereo.ATTERRATO);
+				System.out.println("Blink");
+				return aereo;	
+			
+		}
+		
+	
+		public Aereo decolla(Aereo aereo) {
+	
+			while (aereo.getDistanzaDallAeroporto()<this.raggioDiAzione) {
+				Integer distanzaAttualeAereo = aereo.getDistanzaDallAeroporto()+aereo.getVelocita();
+				aereo.setDistanzaDallAeroporto(distanzaAttualeAereo);
+		
+			}		
+			System.out.println("L'aereo:"+aereo.getIdUnivoco()+" è DECOLLATO");
+			aereo.setStato(StatoAereo.DECOLLATO);
+			System.out.println("Blink");
+			
+			return aereo;	
 		
 	}
 	
-	public Aereo decolla(Aereo aereo) {
-		aereo.setStato(StatoAereo.DECOLLATO);
-		return aereo;
-		
-		
-	}
 	
 	public Passeggero checkin (Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.IN_CHECKIN);
@@ -82,6 +96,22 @@ public class Aeroporto {
 	}	
 
 	
+	//Riempio e faccio il checkin delll'aereo con una lista di paseggeri
+	public void  checkin(ArrayList<Passeggero> listaViaggiatori,Aereo aereoInPartenza) {
+		System.out.println("--CHEKIN DELL'AEREO:"+aereoInPartenza.getIdUnivoco());
+		for(int i=0;i<aereoInPartenza.getModello().getCapienzaNumPasseggeri();i++) {
+			Passeggero passeggeroInPartenza=checkin(listaPasseggeri.get(0));
+			System.out.println("Carico il passeggero:"+passeggeroInPartenza.getIdUnivoco());
+			aereoInPartenza.getPasseggeriAereo().add(passeggeroInPartenza);
+			listaViaggiatori.remove(0);
+			if(listaPasseggeri.size()<aereoInPartenza.getModello().getCapienzaNumPasseggeri()) break;
+
+	
+		}	
+	
+	}
+	
+	
 	public Passeggero checkout (Passeggero passeggero) {
 		passeggero.setStatoPasseggero(StatoPasseggero.IMBARCATO );
 		if (passeggero.getClasseViaggiatore().equals(ClasseViaggiatore.EXCELSIOR)) {
@@ -95,15 +125,46 @@ public class Aeroporto {
 		}
 		return passeggero;
 		
+	}	
+
+	//Faccio il checkout delll'aereo con una lista di paseggeri
+	public void  checkout(ArrayList<Passeggero> listaPasseggeri,Aereo aereoInArrivo) {
+		System.out.println("--CHEKOUT DELL'AEREO:"+aereoInArrivo.getIdUnivoco());
+		for(int i=0;i<aereoInArrivo.getModello().getCapienzaNumPasseggeri();i++) {
+			Passeggero passeggeroInArrivo=checkout(listaPasseggeri.get(0));
+			System.out.println("Scarico il passeggero:"+passeggeroInArrivo.getIdUnivoco());
+			aereoInArrivo.getPasseggeriAereo().add(passeggeroInArrivo);
+			listaPasseggeri.remove(0);
+			if(listaPasseggeri.size()<aereoInArrivo.getModello().getCapienzaNumPasseggeri()) break;
+
+	
+	
+		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		public Aeroporto() {
+			listaAereiInPartenza = new ArrayList <Aereo>();
+			listaAereiInArrivo = new ArrayList <Aereo>();
+			listaPasseggeri = new ArrayList<Passeggero>();
+			this.raggioDiAzione=100;		
 		
+	
+	
+		}
+	
 		
-		
-	}
-	
-	
-	
-	
-	
-	
+
+}	
 
