@@ -13,6 +13,7 @@ public class Aereoporto {
 	public Aereo atterra(Aereo aereo) {
 			
 			while (aereo.getDistanzaDallAereoporto()>0); {
+				System.out.println("L'aereo:"+aereo.getIdUnivoco()+" e' in avvicinamento");
 				Integer distanzaAttualeAereo = aereo.getDistanzaDallAereoporto()-aereo.getVelocita();
 				aereo.setDistanzaDallAereoporto(distanzaAttualeAereo);
 				System.out.println("Blink");
@@ -35,7 +36,7 @@ public class Aereoporto {
 		}
 		
 		System.out.println("L'aereo:"+aereo.getIdUnivoco()+" e' uscito fuori dal raggio d'azione");
-		aereo.setStatoAereo(StatoAereo.DECOLLATO);
+		aereo.setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
 		return aereo;
 	}
 	
@@ -76,16 +77,13 @@ public class Aereoporto {
 				System.out.println("--CHEKOUT DELL'AEREO:"+aereoInArrivo.getIdUnivoco());
 				for(int i=0;i<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri();i++) {
 						Passeggero passeggero=new Passeggero();
-						Aereoporto aereoporto=new Aereoporto();
-						
+						Aereoporto aereoporto=new Aereoporto();					
 						passeggero.setIdUnivocoPasseggero(i);
 						passeggero.setStatoPasseggero(StatoPasseggero.SBARCATO);
 						passeggero.setClassePasseggero(ClassePasseggero.generateRandomPasseggero());
-						
 						passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
 						passeggero.setSessoPasseggero(SessoPasseggero.generateRandomGenere());
-						passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA);
-						
+						passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA);					
 						aereoporto.getViaggiatori().add(passeggero);
 					
 					

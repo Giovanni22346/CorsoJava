@@ -20,7 +20,7 @@ public class StartApplication {
 
 
 		ArrayList<Integer> list = new ArrayList<Integer>();
-		for (int i=0; i<301; i++) {
+		for (int i=1; i<301; i++) {
 			list.add(i);
 		}
         for(int orarioPartenza=1;orarioPartenza<=100;orarioPartenza++) {
@@ -149,7 +149,8 @@ public class StartApplication {
 				passeggero.setHaFiore(true);
 			}
 			aereoporto.getViaggiatori().add(passeggero);
-		}//System.out.println(aereoporto.getViaggiatori() );
+		}
+		//System.out.println(aereoporto.getViaggiatori() );
 
 		 String casi = null;
 		 String situazione="";
