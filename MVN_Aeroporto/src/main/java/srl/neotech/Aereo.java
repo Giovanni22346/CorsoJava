@@ -33,7 +33,6 @@ public class Aereo{
 	}
 	
 
-
 	public ModelloAereo getModelloAereo() {
 		return modelloAereo;
 	}
@@ -51,26 +50,7 @@ public class Aereo{
 	}
 	public void setVelocita(Integer velocita) {
 		this.velocita = velocita+velocita;
-//		if(velocita==distanzaDallAereoporto && velocita==getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.IN_PARTENZA);
-//			velocita++;
-//		}
-//		if(velocita<distanzaDallAereoporto|| velocita<getRaggioDiAzione() ) {
-//			setStatoAereo(StatoAereo.DECOLLATO);
-//			velocita++;
-//		}
-//		if(velocita>getDistanzaDallAereoporto() && velocita>getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.FUORI_SPAZIO_AEREO);
-//			velocita++;
-//		}
-//		if(velocita<getDistanzaDallAereoporto() || velocita<getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.IN_AVVICINAMENTO);
-//			velocita--;
-//		}
-//		if(velocita==getDistanzaDallAereoporto() && velocita==getRaggioDiAzione()) {
-//			setStatoAereo(StatoAereo.ATTERRATO);
-//			velocita--;
-//		}
+
 	}
 	public Integer getDistanzaDallAereoporto() {
 		return distanzaDallAeroporto;

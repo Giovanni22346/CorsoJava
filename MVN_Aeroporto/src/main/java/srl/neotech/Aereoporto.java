@@ -1,6 +1,7 @@
 package srl.neotech;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 	
 public class Aereoporto {
 
@@ -8,18 +9,16 @@ public class Aereoporto {
 	private ArrayList<Passeggero>viaggiatori=new ArrayList<Passeggero>();
 	private Integer raggioDiAzione;//da 1 a 100 km
 	
-	
-	
 
 	public Aereo atterra(Aereo aereo) {
 			
-			while (aereo.getDistanzaDallAereoporto()<this.raggioDiAzione) {
+			while (aereo.getDistanzaDallAereoporto()>0); {
 				Integer distanzaAttualeAereo = aereo.getDistanzaDallAereoporto()-aereo.getVelocita();
 				aereo.setDistanzaDallAereoporto(distanzaAttualeAereo);
+				System.out.println("Blink");
 				
 				}		
 				System.out.println("L'aereo:"+aereo.getIdUnivoco()+" è ATTERRATO");
-				System.out.println("Blink");
 				aereo.setStatoAereo(StatoAereo.ATTERRATO);
 				
 				return aereo;
@@ -32,8 +31,10 @@ public class Aereoporto {
 			Integer distanzaAttualeAereo=aereo.getDistanzaDallAereoporto()+aereo.getVelocita();
 			aereo.setDistanzaDallAereoporto(distanzaAttualeAereo);
 			System.out.println("Blink!");
+			
 		}
-		System.out.println("L'aereo:"+aereo.getIdUnivoco()+" è DECOLLATO");
+		
+		System.out.println("L'aereo:"+aereo.getIdUnivoco()+" e' uscito fuori dal raggio d'azione");
 		aereo.setStatoAereo(StatoAereo.DECOLLATO);
 		return aereo;
 	}
@@ -74,11 +75,23 @@ public class Aereoporto {
 			public void  checkOut(Aereo aereoInArrivo,ArrayList<Passeggero> listaViaggiatori) {
 				System.out.println("--CHEKOUT DELL'AEREO:"+aereoInArrivo.getIdUnivoco());
 				for(int i=0;i<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri();i++) {
-					Passeggero passeggeroInArrivo=checkOut(viaggiatori.get(0));
-					System.out.println("E' sbarcato il passeggero:"+passeggeroInArrivo.getIdUnivocoPasseggero());
-					aereoInArrivo.getPasseggeriAereo().add(passeggeroInArrivo);
-					listaViaggiatori.remove(0);
-					if(listaViaggiatori.size()<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri()) break;	
+						Passeggero passeggero=new Passeggero();
+						Aereoporto aereoporto=new Aereoporto();
+						
+						passeggero.setIdUnivocoPasseggero(i);
+						passeggero.setStatoPasseggero(StatoPasseggero.SBARCATO);
+						passeggero.setClassePasseggero(ClassePasseggero.generateRandomPasseggero());
+						
+						passeggero.setEta(ThreadLocalRandom.current().nextInt(1, 80 + 1));
+						passeggero.setSessoPasseggero(SessoPasseggero.generateRandomGenere());
+						passeggero.getSessoPasseggero().equals(SessoPasseggero.FEMMINA);
+						
+						aereoporto.getViaggiatori().add(passeggero);
+					
+					
+					System.out.println("E' sbarcato il passeggero:"+passeggero.getIdUnivocoPasseggero()+1);
+				
+					//if(listaViaggiatori.size()<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri()) break;	
 	
 	
 				}

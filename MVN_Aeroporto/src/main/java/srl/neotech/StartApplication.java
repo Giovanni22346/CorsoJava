@@ -29,6 +29,7 @@ public class StartApplication {
 			aereo.setStatoAereo(StatoAereo.IN_PARTENZA);
 			aereo.setIdUnivoco(orarioPartenza );
 			aereo.setCompagniaAerea(CompagniaAerea.generateRandomCompagniaAerea());
+
 			if(aereo.getCompagniaAerea().equals(CompagniaAerea.Ryanair)) {
 				aereo.getModelloAereo().setCostruttore("boing commercial airplanes");
 				aereo.getModelloAereo().setCodiceModello(737-400);
@@ -74,7 +75,7 @@ public class StartApplication {
 			aereo.setVelocita(ThreadLocalRandom.current().nextInt(1, 10 + 1));
 			aereo.setDistanzaDallAereoporto(0);
 			aereoporto.getListaAerei().add(aereo);
-			
+        }	
 
 		for(int orarioArrivo=1;orarioArrivo<=200;orarioArrivo++) {
 			Collections.shuffle(list);
@@ -208,21 +209,22 @@ public class StartApplication {
 		}
 		
 		
-//		//Far Atterrare gli Aerei... per ogni Aereo...
-//		for(Aereo aereoinArrivo: aereiInArrivo) {
-//			
-//			aereoporto.checkOut(aereoinArrivo, aereoporto.getViaggiatori());
-//			
-//			aereoporto.atterra(aereoinArrivo);
-//		
-//		
+		//Far Atterrare gli Aerei... per ogni Aereo...
+		for(Aereo aereoinArrivo: aereiInArrivo) {
+			
+			aereoporto.checkOut(aereoinArrivo, aereoporto.getViaggiatori());
+			
+			aereoporto.atterra(aereoinArrivo);
+		
+		
 		}
 	
 		
         }
 	
 
-}
+	}
+
 		
 
 
