@@ -215,7 +215,7 @@ public class StartApplication {
 			
 			aereoporto.checkOut(aereoinArrivo, aereoporto.getViaggiatori());
 			
-			aereoporto.atterra(aereoinArrivo);
+			aereoporto.atterra(aereoinArrivo, aereo);
 		
 		
 		}

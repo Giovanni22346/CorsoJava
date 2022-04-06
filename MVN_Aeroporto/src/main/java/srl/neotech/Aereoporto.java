@@ -10,7 +10,7 @@ public class Aereoporto {
 	private Integer raggioDiAzione;//da 1 a 100 km
 	
 
-	public Aereo atterra(Aereo aereo) {
+	public Aereo atterra(Aereo aereoinArrivo, Aereo aereo) {
 			
 			while (aereo.getDistanzaDallAereoporto()>0); {
 				System.out.println("L'aereo:"+aereo.getIdUnivoco()+" e' in avvicinamento");
@@ -73,7 +73,7 @@ public class Aereoporto {
 	
 	
 	//Faccio il checkout delll'aereo con una lista di paseggeri
-			public void  checkOut(Aereo aereoInArrivo,ArrayList<Passeggero> listaViaggiatori) {
+			public void  checkOut(Aereo aereoInArrivo, ArrayList<Passeggero> listaViaggiatori) {
 				System.out.println("--CHEKOUT DELL'AEREO:"+aereoInArrivo.getIdUnivoco());
 				for(int i=0;i<aereoInArrivo.getModelloAereo().getCapienzaNumeroPasseggeri();i++) {
 						Passeggero passeggero=new Passeggero();
