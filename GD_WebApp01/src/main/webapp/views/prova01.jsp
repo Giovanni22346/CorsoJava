@@ -7,8 +7,8 @@
 <link rel="stylesheet" type="text/css" href="static/css/hello.css"/>
 </head>
 <body>
-<h1 class="mia classe"> Corriere della sera</h1>
-<h2>Il corriere dei piccoli</h2>
- <img src="https://www.monzatoday.it/~media/horizontal-hi/16237512180426/alba-rossa-instagram-fracycic-2.jpg"> 
+<h1 class="mia classe"> Repubblica</h1>
+<h2>Il Resto del Carlino</h2>
+ <img src="hhttps://th.bing.com/th/id/R.e61766b8cc562059bcdbc72259136144?rik=CXzylDHIk5SL2A&riu=http%3a%2f%2fwww.turistafaidate.it%2fwp-content%2fuploads%2f2016%2f10%2fRoma.jpg&ehk=KIkBbFltkW0bC9WfW%2fCa62e%2fU03p%2bWa2UcIfb%2fQreso%3d&risl=&pid=ImgRaw&r=0"> 
 </body>
 </html>
