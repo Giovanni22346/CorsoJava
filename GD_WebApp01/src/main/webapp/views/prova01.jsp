@@ -7,7 +7,21 @@
 <link rel="stylesheet" type="text/css" href="static/css/hello.css"/>
 </head>
 <body>
-<h1 class="mia classe"> Repubblica</h1>
+
+
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+<button type="button" class="btn btn-link">Link</button>
+
+
+
+<h1 class="mia classe"> Ufficio prenotazione visite guidate</h1>
 <h2 Style ="color.blue"> Il Resto del Carlino</h2>
 
 
@@ -57,6 +71,8 @@
 <td>info@prova.it</td>
 
 
+
+
 </tbody>
 <tfoot>
 </tfoot>
@@ -64,5 +80,10 @@
 </table>
 
  <img src="https://th.bing.com/th/id/R.e61766b8cc562059bcdbc72259136144?rik=CXzylDHIk5SL2A&riu=http%3a%2f%2fwww.turistafaidate.it%2fwp-content%2fuploads%2f2016%2f10%2fRoma.jpg&ehk=KIkBbFltkW0bC9WfW%2fCa62e%2fU03p%2bWa2UcIfb%2fQreso%3d&risl=&pid=ImgRaw&r=0" width="280" height = "150"> 
+
+
+
+
+
 </body>
 </html>
