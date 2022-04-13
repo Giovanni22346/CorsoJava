@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import srl.neotech.model.Aereo;
+import srl.neotech.requestresponse.RequestRegistrazione;
 import srl.neotech.requestresponse.RequestSearchAereo;
 import srl.neotech.requestresponse.ResponseSearchAereo;
 
@@ -19,6 +20,14 @@ public class APIController {
 	public String hello() {
 		return "Ciaoooo!";
 	}
+	
+	
+	@PostMapping(value="/api/registrazione_dati")
+	public void registrazioneDati(@RequestBody RequestRegistrazione dati_in_input){
+		System.out.println("sono arrivato al server");
+	}
+	
+	
 	
 	
 	@ResponseBody

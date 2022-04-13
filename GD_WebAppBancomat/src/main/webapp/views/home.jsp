@@ -1,38 +1,57 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=5">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  
+  <link rel="stylesheet" type="text/css" href="static/css/color.css"/>
+  <style>
+  footer {
+  background-color: #777;
+  padding: 20px;
+  text-align: center;
+  color: white;
+}
+nav {
+  float: center;
+  width: 100%;
+  height: 400px; /* only for demonstration, should be removed */
+  padding: 20px;
+}
+  </style>
 </head>
+
 <body>
 <div align="center">
-<a>
-
-  <h1>	
-<label for= "nome">Home Bancomat</label><br></h1>						
-<h1>Neotech Bank</h1>
-
-
-
-<button type="button" class="btn btn-secondary">Home</button><br>
-</a>
-<tr>
-<a>
-<button type="button" class="btn btn-secondary">Versamento</button><br>
-</a>
-</tr>
-<a>
-<button type="button" class="btn btn-secondary">Prelevamento</button><br>
-</a>
-<tr>
-<a>
-<button type="button" class="btn btn-secondary">Lista movimenti</button><br>
-</a>
+<div class="container mt-3">
+  <h1>BANCOMAT</h1>
+  <h3>La mia banca e' differente</h3>
+  <ul class="nav nav-pills nav-justified">
+  
+    <li class="nav-item">
+      <a class="nav-link active" href="http://127.0.0.1:8080/GD_WebAppBancomat/home"><h2>HOME</h2></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/versamento"><h3>Versamento</h3></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/prelevamento"><h3>Prelievo</h3></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/lista_movimenti"><h3>Movimenti</h3></a>
+    </li>
+  </ul>
+  <nav></nav>
+</div></div>
+<footer>
+  <img src="static/images/Logo_white.png"> 
+  </footer>
+  
 </body>
+
 </html>

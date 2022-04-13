@@ -33,20 +33,21 @@ public class ViewController {
 		
 	}
 	
-	/*
+	
 	@RequestMapping(value="/registrazione_dati", method = RequestMethod.POST)
 	public String registrazioneDati(@ModelAttribute("registrazione") RequestRegistrazione dati_in_input, Model model) {
          System.out.println(dati_in_input.getUsername());
          System.out.println(dati_in_input.getPassword());
          model.addAttribute("utente", dati_in_input.getUsername());
          return "registrazione_ok_view";
-	*/
+
+	}
+	
 	
          @RequestMapping(value="/inviodati_get", method = RequestMethod.POST)
-     	public String ricezioneDati(@ModelAttribute("mapping_dati") ProvaGetRequest dati_in_input, Model model) {
+     	public String ricezioneDati(@ModelAttribute("mapping_dati") RequestRegistrazione dati_in_input, Model model) {
               System.out.println(dati_in_input.getUsername());
               System.out.println(dati_in_input.getPassword());
-              System.out.println(dati_in_input.getEmail());
               model.addAttribute("utente", dati_in_input.getUsername());
               return "registrazione_ok_view";
      	

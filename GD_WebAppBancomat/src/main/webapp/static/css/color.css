@@ -1,16 +1,25 @@
-.box-one {
+body {
 	
-background-color :  #00ffff;
-padding:10px;
-height: 100px;
-width: 500px;
-border: 20px;
-margin: 100px;
-box-sizing: border-box;
-
-} 
+	background-color: #00ffff;
+}
 
 
+h1 {
 	
+	color: brown;
+}
 
+
+
+h2  {
+	
+	color:blue;
+	
+}
+
+mia classe {
+	
+	color: blue;	
+}
+	
 	
