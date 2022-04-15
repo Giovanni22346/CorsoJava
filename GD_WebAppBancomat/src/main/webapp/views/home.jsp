@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +36,7 @@ nav {
   <ul class="nav nav-pills nav-justified">
   
     <li class="nav-item">
-      <a class="nav-link active" href="http://127.0.0.1:8080/GD_WebAppBancomat/home"><h2>HOME</h2></a>
+      <a class="nav-link active" href="http://127.0.0.1:8080/GD_WebAppBancomat/home"><h3>HOME</h3></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/versamento"><h3>Versamento</h3></a>

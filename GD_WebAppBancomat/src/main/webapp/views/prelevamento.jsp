@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   
     <link rel="stylesheet" type="text/css" href="static/css/color.css"/>
-<style>
+<  <style>
   footer {
   background-color: #777;
   padding: 20px;
@@ -44,7 +45,7 @@ nav {
       <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/versamento"><h3>Versamento</h3></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="http://127.0.0.1:8080/GD_WebAppBancomat/prelevamento"><h2>Prelievo</h2></a>
+      <a class="nav-link active" href="http://127.0.0.1:8080/GD_WebAppBancomat/prelevamento"><h3>Prelievo</h3></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="http://127.0.0.1:8080/GD_WebAppBancomat/lista_movimenti"><h3>Movimenti</h3></a>
@@ -57,7 +58,7 @@ nav {
  <div align = center>
   <form name = "form" method =GET>
   <h1>	
-<label for= "nome">Prelevamento</label><br></h1>
+<label for= "nome"></label><br></h1>
 <input type ="text" placeholder="nominativo" name ="nome" value="" /><br>
 
  <h3>	
@@ -68,12 +69,13 @@ nav {
 
  
   </div>
+  <div align = center>
     <button class="btn btn-primary" type="submit">Invia</button>
      <div class="col-08">
   </div>
 </form>
  
- </nav>
+
 <footer>
   <img src="static/images/Logo_white.png"> 
   </footer>

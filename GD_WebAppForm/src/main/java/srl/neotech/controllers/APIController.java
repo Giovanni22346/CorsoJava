@@ -15,22 +15,13 @@ import srl.neotech.requestresponse.ResponseSearchAereo;
 public class APIController {
 
 	
-	@RequestMapping(value = "/api/hello")
-	public String hello() {
-		return "Ciaoooo!";
-	}
-	
-	
-	
-	
-	
 	
 	
 	
 	@ResponseBody
 	@PostMapping(value = "/api/search",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseSearchAereo search(@RequestBody RequestSearchAereo request) {
-		
+		System.out.println(request.getAereo());
 		ResponseSearchAereo result = new ResponseSearchAereo();
 		Aereo aereo=new Aereo();
 		aereo.setId("alpha01");

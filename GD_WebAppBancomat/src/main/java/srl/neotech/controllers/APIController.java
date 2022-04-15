@@ -1,45 +1,40 @@
 package srl.neotech.controllers;
 
+import org.apache.catalina.authenticator.SingleSignOnListener;
+import org.apache.catalina.connector.Response;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.databind.cfg.ConstructorDetector.SingleArgConstructor;
+
 import srl.neotech.model.Aereo;
-import srl.neotech.requestresponse.RequestRegistrazione;
-import srl.neotech.requestresponse.RequestSearchAereo;
-import srl.neotech.requestresponse.ResponseSearchAereo;
+import srl.neotech.model.SingletonTransazioneBancomat;
+import srl.neotech.requestresponse.RequestTransazione;
+import srl.neotech.requestresponse.ResponseListaTransazioni;
+
+
 
 @RestController
 public class APIController {
 
 	
-	@RequestMapping(value = "/api/hello")
-	public String hello() {
-		return "Ciaoooo!";
-	}
-	
-	
-	@PostMapping(value="/api/registrazione_dati")
-	public void registrazioneDati(@RequestBody RequestRegistrazione dati_in_input){
-		System.out.println("sono arrivato al server");
-	}
-	
-	
 	
 	
 	@ResponseBody
-	@PostMapping(value = "/api/search",produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseSearchAereo search(@RequestBody RequestSearchAereo request) {
+	@PostMapping(value = "/api/transazioneAdd",produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseListaTransazioni Add(@RequestBody RequestTransazione request) {
+		SingletonTransazioneBancomat.getInstance().getListaTransazioni().add(request.getTransazioneRequest());
 		
-		ResponseSearchAereo result = new ResponseSearchAereo();
-		Aereo aereo=new Aereo();
-		aereo.setId("alpha01");
-		aereo.setNome("Boing747");
-		result.getAerei().add(aereo);
-		return result;
+		
+		
+		ResponseListaTransazioni response = new ResponseListaTransazioni();
+	    response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
+	    
+		
+		return response;
 	
 	}
 	

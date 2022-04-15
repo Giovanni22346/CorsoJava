@@ -1,9 +1,9 @@
 package srl.neotech.model;
 
-public class Transazione {
+public class TransazioneBancomat {
 
-	private Integer id;
-	private String data;
+	private String id;
+	private String dataEora;
 	private String operazione;
 	private String nominativo;
 	private Integer taglio;
@@ -11,18 +11,19 @@ public class Transazione {
 	private Integer totale;
 	
 	
-	public Integer getId() {
+	public String getDataEora() {
+		return dataEora;
+	}
+	public void setDataEora(String dataEora) {
+		this.dataEora = dataEora;
+	}
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public String getData() {
-		return data;
-	}
-	public void setData(String data) {
-		this.data = data;
-	}
+		
 	public String getOperazione() {
 		return operazione;
 	}
