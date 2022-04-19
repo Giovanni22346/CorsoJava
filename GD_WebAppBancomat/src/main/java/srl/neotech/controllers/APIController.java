@@ -1,5 +1,7 @@
 package srl.neotech.controllers;
 
+import java.util.UUID;
+
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +16,6 @@ import srl.neotech.requestresponse.ResponseListaTransazioni;
 
 
 
-
 @RestController
 public class APIController {
 
@@ -24,6 +25,7 @@ public class APIController {
 	@ResponseBody
 	@PostMapping(value = "/api/add",produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseListaTransazioni Add(@RequestBody RequestTransazione request) {
+		request.getTransazioneRequest().setUUID(UUID.randomUUID().toString());
 		SingletonTransazioneBancomat.getInstance().getListaTransazioni().add(request.getTransazioneRequest());
 		
 		ResponseListaTransazioni response = new ResponseListaTransazioni();
@@ -35,9 +37,9 @@ public class APIController {
 		
 		@ResponseBody
 		@GetMapping(value = "/api/transazione/delete{uuid}",produces = MediaType.APPLICATION_JSON_VALUE)
-		public ResponseListaTransazioni Delete(@PathVariable("id") String UUID_transazioni) {
+		public ResponseListaTransazioni Delete(@PathVariable("uuid") String UUID_transazioni) {
 			ResponseListaTransazioni response = new ResponseListaTransazioni();
-			SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazioneRequest->transazioneRequest.getId().equals(UUID_transazioni));
+			SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazioneRequest->transazioneRequest.getUUID().equals(UUID_transazioni));
 			
 			
 			

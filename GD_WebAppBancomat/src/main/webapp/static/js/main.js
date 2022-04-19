@@ -20,7 +20,7 @@ $(document).ready(function () {
     
     //elaboro la risposta in formato ogetto
     $("#table-feedback tr.mia").remove();
-    $.each(response_object.lista_transazioni, function(i, transazione) {
+    $.each(response_object.lista_movimenti, function(i, transazione) {
 	     var riga="<tr class='mia'>";
 	  	 riga+="<td>"+transazione.id+"</td>";
 	     riga+="<td>"+transazione.dataEora+"</td>";
@@ -53,7 +53,7 @@ $('#text-feedback').text(response_text);
 $("#table-feedback tr.mia").remove();
 
  //elaboro la risposta in formato ogetto
-$.each(response_object.lista_transazioni, function(i, transazione) {
+$.each(response_object.lista_movimenti, function(i, transazione) {
    var riga="<tr class='mia'>";
 	     riga+="<td>"+transazione.id+"</td>";
 	     riga+="<td>"+transazione.dataEora+"</td>";
@@ -62,8 +62,16 @@ $.each(response_object.lista_transazioni, function(i, transazione) {
 		 riga+="<td>"+transazione.taglio+"</td>";
          riga+="<td>"+transazione.quantita+"</td>";
          riga+="<td>"+transazione.totale+"</td>";
-   riga+="<td><button onClick='deleteTransazione(\""+transazione.UUID+"\")' type='button' class='btn btn-danger'>delete</button></td>";
+   riga+="<td><</td>";
    riga+="</tr>";
    $("#table-feedback").append(riga);
     });	
+}
+function deleteTransazione(uuid){
+	alert(uuid);
+	
+ var risposta= fire_ajax_pathvar("api/transazione/delete/"+uuid);
+
+	
+	
 }

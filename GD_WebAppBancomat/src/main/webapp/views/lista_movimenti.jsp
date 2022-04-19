@@ -12,7 +12,8 @@
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  
+  <script src= "static/js/neotech_ajax.js"></script>
+  <script src= "static/js/main.js"></script>
     <link rel="stylesheet" type="text/css" href="static/css/color.css"/>
   <style>
   footer {
@@ -61,7 +62,7 @@ nav {
 -->
 
 <table class="table table-dark">
-  <tbody>
+
    <tr>
    	 <th scope="col">ID</th>
    	 <th scope="col">UUID</th>
@@ -73,22 +74,22 @@ nav {
      <th scope="col">Totale</th>
     <th scope="col">Canc</th>
    	 </tr>
-  </tbody>
-</table>
+ 
+
 
 <c:set var="numTransazioni" scope="session" value="0"/>
 <c:forEach var="transazione" items="${lista_transazioni.listaTransazioniRestituite}">
  <c:set var="numTransazioni" scope="session" value="${numTransazioni+1}"/>
     <tr style="text-align:center">
     <td> <c:out value="${numTransazioni}"/></td>
-    <td> <c:out value="${transazione.id}"/></td>
+    <td> <c:out value="${transazione.UUID}"/></td>
     <td> <c:out value="${transazione.dataEora}"/></td>
     <td> <c:out value="${transazione.operazione}"/></td>
     <td> <c:out value="${transazione.nominativo}"/></td>  
     <td> <c:out value="${transazione.taglio}"/></td> 
     <td> <c:out value="${transazione.quantita}"/></td>
     <td> Totale: <c:out value="${transazione.taglio*transazione.quantita}"/></td>
-    <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
+    <td><button onClick='deleteTransazione(${transazione.UUID})' type='button' class='btn btn-danger'>delete</button></td>
    </tr>     
    </c:forEach>
 </table>

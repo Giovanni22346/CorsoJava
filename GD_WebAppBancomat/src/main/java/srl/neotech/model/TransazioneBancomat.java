@@ -3,6 +3,7 @@ package srl.neotech.model;
 public class TransazioneBancomat {
 
 	private String id;
+	private String UUID;
 	private String dataEora;
 	private String operazione;
 	private String nominativo;
@@ -11,6 +12,12 @@ public class TransazioneBancomat {
 	private Integer totale;
 	
 	
+	public String getUUID() {
+		return UUID;
+	}
+	public void setUUID(String uUID) {
+		UUID = uUID;
+	}
 	public String getDataEora() {
 		return dataEora;
 	}
