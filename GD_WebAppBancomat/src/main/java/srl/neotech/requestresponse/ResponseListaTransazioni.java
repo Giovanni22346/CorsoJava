@@ -11,7 +11,6 @@ public class ResponseListaTransazioni {
 	
 	
 
-	
 
 	public ArrayList<TransazioneBancomat> getListaTransazioniRestituite() {
 		return listaTransazioniRestituite;

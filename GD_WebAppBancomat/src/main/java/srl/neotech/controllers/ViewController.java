@@ -90,7 +90,7 @@ public class ViewController {
 		ResponseListaTransazioni response=new ResponseListaTransazioni();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
 		model.addAttribute("responseTransazione", response);
-		return "lista-transazioni";
+		return "lista_movimenti";
 	}
 	
 	

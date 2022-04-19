@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-    <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,25 +54,41 @@ nav {
 </div></div> 
 
 <div align = center>
-<table style="border:1">
+<table 
 <!-- TH intestazione 
      TR righe
      TD i campi in orrizontale
 -->
 
+<table class="table table-dark">
+  <tbody>
+   <tr>
+   	 <th scope="col">ID</th>
+   	 <th scope="col">UUID</th>
+     <th scope="col">Data e Ora</th>
+     <th scope="col">Operazione</th>
+     <th scope="col">Nominativo</th>
+     <th scope="col">Taglio</th>
+     <th scope="col">Quantita'</th>
+     <th scope="col">Totale</th>
+    <th scope="col">Canc</th>
+   	 </tr>
+  </tbody>
+</table>
 
+<c:set var="numTransazioni" scope="session" value="0"/>
 <c:forEach var="transazione" items="${lista_transazioni.listaTransazioniRestituite}">
+ <c:set var="numTransazioni" scope="session" value="${numTransazioni+1}"/>
     <tr style="text-align:center">
+    <td> <c:out value="${numTransazioni}"/></td>
     <td> <c:out value="${transazione.id}"/></td>
     <td> <c:out value="${transazione.dataEora}"/></td>
     <td> <c:out value="${transazione.operazione}"/></td>
     <td> <c:out value="${transazione.nominativo}"/></td>  
     <td> <c:out value="${transazione.taglio}"/></td> 
     <td> <c:out value="${transazione.quantita}"/></td>
-    <td> <c:out value="${transazione.totale}"/></td>
-    <td> <img src="<c:out value="${transazione.url_immagine}"/>"/></td>
-    <td>
-    </td>
+    <td> Totale: <c:out value="${transazione.taglio*transazione.quantita}"/></td>
+    <td><a href="elimina-movimento?id=<c:out value="${movimento.id}"/>"> <input class="myclass" type="button"  value="Delete"/></a></td>
    </tr>     
    </c:forEach>
 </table>
@@ -86,8 +102,8 @@ nav {
  
   <div align = center>
  <h3>	
-<label for= "nome">Saldo</label><br></h3>
-<input type ="text" placeholder="saldo" name ="nome" value="" /><br>
+
+<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :</span>
 
 
 

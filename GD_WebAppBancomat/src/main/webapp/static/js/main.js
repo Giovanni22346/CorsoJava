@@ -1,36 +1,69 @@
 $(document).ready(function () {
 
-    $("#search-form").submit(function (event) {
-        //stop submit the form, we will post it manually.
-        event.preventDefault();
-        fire_ajax_submit();
+ 
+   //registro evento pulsante search	
+   $('#btn-add').click(function (event) {   
+    //preparo la request in json
+    var requestData = {
+	    'transazioneRequest':{
+		     'id':$('#txt-transazioneRequest').val()
+	    }
+     };
+    
+     //chiamo il server---------------
+    var response=fire_ajax_post("api/add", requestData);
+    var response_object=response.responseJSON;   //questo torna un oggetto complesso che posso navigare
+    
+    //elaboro la risposta in formato testo
+    var response_text=response.responseText;   //questo torna una stringa pura
+    $('#text-feedback').text(response_text);
+    
+    //elaboro la risposta in formato ogetto
+    $("#table-feedback tr.mia").remove();
+    $.each(response_object.lista_transazioni, function(i, transazione) {
+	     var riga="<tr class='mia'>";
+	  	 riga+="<td>"+transazione.id+"</td>";
+	     riga+="<td>"+transazione.dataEora+"</td>";
+	     riga+="<td>"+transazione.operazione+"</td>";
+		 riga+="<td>"+transazione.nominativo+"</td>";
+		 riga+="<td>"+transazione.taglio+"</td>";
+         riga+="<td>"+transazione.quantita+"</td>";
+         riga+="<td>"+transazione.totale+"</td>";
+         
+
+	     riga+="<td><button onClick='deleteTransazione(\""+transazione.id+"\")' type='button' class='btn btn-danger'>delete</button></td>";
+	     riga+="</tr>";
+         $("#table-feedback").append(riga);
     });
+ });
+
 
 });
 
+function deleteTransazione(transazioneId){
+//chiamo il server---------------	
+var response=fire_ajax_pathvar("/api/transazione/delete"+transazioneId);
+var response_object=response.responseJSON;
 
-function fire_ajax_submit() {
+//elaboro la risposta in formato testo
+ var response_text=response.responseText;
+$('#text-feedback').text(response_text);
+    
 
-    var search = {};
-    search["aereo"] = $("#aereo").val();
-    $.ajax({
-        type: "POST",
-        contentType: "application/json",
-        url: "/WebAppTemplate/api/search",
-        data: JSON.stringify(search),
-        dataType: 'json',
-        cache: false,
-        success: function (data) {
-            var json = JSON.stringify(data);
-            $('#feedback').html(json);
+$("#table-feedback tr.mia").remove();
 
-            console.log("SUCCESS : ", data);
-            $("#btn-search").prop("disabled", false);
-
-        },
-        error: function (e) {
-            var json = "<h4>Ajax Response</h4>&lt;pre&gt;"
-                + e.responseText + "&lt;/pre&gt;";
-        }
-   });
+ //elaboro la risposta in formato ogetto
+$.each(response_object.lista_transazioni, function(i, transazione) {
+   var riga="<tr class='mia'>";
+	     riga+="<td>"+transazione.id+"</td>";
+	     riga+="<td>"+transazione.dataEora+"</td>";
+	     riga+="<td>"+transazione.operazione+"</td>";
+		 riga+="<td>"+transazione.nominativo+"</td>";
+		 riga+="<td>"+transazione.taglio+"</td>";
+         riga+="<td>"+transazione.quantita+"</td>";
+         riga+="<td>"+transazione.totale+"</td>";
+   riga+="<td><button onClick='deleteTransazione(\""+transazione.UUID+"\")' type='button' class='btn btn-danger'>delete</button></td>";
+   riga+="</tr>";
+   $("#table-feedback").append(riga);
+    });	
 }
