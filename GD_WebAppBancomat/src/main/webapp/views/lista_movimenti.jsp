@@ -63,8 +63,8 @@ nav {
 
 <table class="table table-dark">
 
-   <tr>
-   	 <th scope="col">ID</th>
+   <tr style="text-align:center">
+   
    	 <th scope="col">UUID</th>
      <th scope="col">Data e Ora</th>
      <th scope="col">Operazione</th>
@@ -72,7 +72,7 @@ nav {
      <th scope="col">Taglio</th>
      <th scope="col">Quantita'</th>
      <th scope="col">Totale</th>
-    <th scope="col">Canc</th>
+     <th scope="col">Canc</th>
    	 </tr>
  
 
@@ -81,15 +81,19 @@ nav {
 <c:forEach var="transazione" items="${lista_transazioni.listaTransazioniRestituite}">
  <c:set var="numTransazioni" scope="session" value="${numTransazioni+1}"/>
     <tr style="text-align:center">
-    <td> <c:out value="${numTransazioni}"/></td>
+    
     <td> <c:out value="${transazione.UUID}"/></td>
     <td> <c:out value="${transazione.dataEora}"/></td>
     <td> <c:out value="${transazione.operazione}"/></td>
     <td> <c:out value="${transazione.nominativo}"/></td>  
     <td> <c:out value="${transazione.taglio}"/></td> 
     <td> <c:out value="${transazione.quantita}"/></td>
-    <td> Totale: <c:out value="${transazione.taglio*transazione.quantita}"/></td>
-    <td><button onClick='deleteTransazione(${transazione.UUID})' type='button' class='btn btn-danger'>delete</button></td>
+    <td> <c:out value="${transazione.taglio*transazione.quantita}"/></td>
+    <td><a href="elimina-transazione?uuid=<c:out value="${transazione.UUID}"/>"> <input class='btn btn-danger' type="button"  value="Delete"/></a>
+    <button onClick='cancellaTransazione("${transazione.UUID}") type='button' class='btn btn-danger'>delete</button>
+    
+    </td>
+     
    </tr>     
    </c:forEach>
 </table>

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.taglibs.standard.lang.jstl.EqualsOperator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import srl.neotech.model.SingletonTransazioneBancomat;
+import srl.neotech.model.TipologiaMovimento;
 import srl.neotech.model.TransazioneBancomat;
 import srl.neotech.requestresponse.ResponseListaTransazioni;
 import srl.neotech.requestresponse.ListaTransazioniResponse;
@@ -48,53 +50,47 @@ public class ViewController {
 	
 	
 	
-
-	
-	@RequestMapping(value="/genera_transazioni", method = RequestMethod.GET)
-	public String generaTransazioni(Model model) {
-		
-		for (int i=0;i<50;i++) {
-		
-			TransazioneBancomat transazione= new TransazioneBancomat();
-		
-		 
-		
-			transazione.setId(UUID.randomUUID().toString());
-			transazione.setDataEora("14/04/21");
-			transazione.setNominativo("Giovanni");
-			transazione.setOperazione("versamento");
-			transazione.setQuantita(ThreadLocalRandom.current().nextInt(1, 1000 + 1));;
-			transazione.setTaglio(ThreadLocalRandom.current().nextInt(1, 100 + 1));
-			transazione.setTotale(null);
-
-			SingletonTransazioneBancomat.getInstance().getListaTransazioni().add(transazione);
-			
-		}
-		
-		model.addAttribute("numeroTransazioniGenerate",SingletonTransazioneBancomat.getInstance().getListaTransazioni().size());
-		
-		return "genera_transazioni";
-	
-	}	
+//
+//	
+//	@RequestMapping(value="/genera_transazioni", method = RequestMethod.GET)
+//	public String (Model model) {
+//		
+//		for (int i=0;i<50;i++) {
+//		
+//			TransazioneBancomat transazione= new TransazioneBancomat();
+//		
+//		 
+//		
+//			transazione.setId(UUID.randomUUID().toString());
+//			transazione.setDataEora("14/04/21");
+//			transazione.setNominativo("Giovanni");
+//			transazione.setOperazione("versamento");
+//			transazione.setQuantita(ThreadLocalRandom.current().nextInt(1, 1000 + 1));;
+//			transazione.setTaglio(ThreadLocalRandom.current().nextInt(1, 100 + 1));
+//			transazione.setTotale(null);
+//
+//			SingletonTransazioneBancomat.getInstance().getListaTransazioni().add(transazione);
+//			
+//		}
+//		
+//		model.addAttribute("numeroTransazioniGenerate",SingletonTransazioneBancomat.getInstance().getListaTransazioni().size());
+//		
+//		return "genera_transazioni";
+//	
+//	}	
 
 	
 	
 	@RequestMapping(value="/elimina-transazione", method = RequestMethod.GET)
-	public String eliminaTransazione(@ModelAttribute RequestEliminaTransazione dati_in_input, Model model) {
-		String idDaEliminare=dati_in_input.getId();
-		System.out.println("devo eliminare il record"+idDaEliminare);
+	public String eliminaTransazione(@ModelAttribute RequestEliminaTransazione uuidDaEliminare, Model model) {
 		
-		SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazione->transazione.getId().equals(idDaEliminare));
-		
+		SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazione->transazione.getUUID().equals(uuidDaEliminare.getUuid()));
 		//return lista
 		ResponseListaTransazioni response=new ResponseListaTransazioni();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
-		model.addAttribute("responseTransazione", response);
+		model.addAttribute("lista_transazioni", response);
 		return "lista_movimenti";
 	}
-	
-	
-	
 	
 	
 
@@ -102,7 +98,20 @@ public class ViewController {
 	public String lista_transazioni(Model model) {
 		ResponseListaTransazioni response= new ResponseListaTransazioni();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
-	model.addAttribute("lista_transazioni", response);
+		
+		
+//		Integer valoreSaldo= new Integer(0);
+//		for (TransazioneBancomat mov: SingletonTransazioneBancomat.getInstance().getListaTransazioni());{
+//			TransazioneBancomat mov = null;
+//			if (mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo= valoreSaldo+(mov.getQuantita()*mov.getTaglio());
+//			if (mov.getOperazione().equals(TipologiaMovimento.PRELIEVO)) valoreSaldo = valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+//		}
+//		
+//		
+//		model.addAttribute("Saldo",valoreSaldo);
+		model.addAttribute("lista_transazioni", response);
+	
+	
 	
 	return "lista_movimenti";
 	}

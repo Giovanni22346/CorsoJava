@@ -5,13 +5,19 @@ public class TransazioneBancomat {
 	private String id;
 	private String UUID;
 	private String dataEora;
-	private String operazione;
+	private TipologiaMovimento operazione;
 	private String nominativo;
 	private Integer taglio;
 	private Integer quantita;
 	private Integer totale;
 	
 	
+	public TipologiaMovimento getOperazione() {
+		return operazione;
+	}
+	public void setOperazione(TipologiaMovimento operazione) {
+		this.operazione = operazione;
+	}
 	public String getUUID() {
 		return UUID;
 	}
@@ -31,12 +37,7 @@ public class TransazioneBancomat {
 		this.id = id;
 	}
 		
-	public String getOperazione() {
-		return operazione;
-	}
-	public void setOperazione(String operazione) {
-		this.operazione = operazione;
-	}
+
 	public String getNominativo() {
 		return nominativo;
 	}

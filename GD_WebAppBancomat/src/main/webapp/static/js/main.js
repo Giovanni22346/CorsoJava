@@ -40,9 +40,9 @@ $(document).ready(function () {
 
 });
 
-function deleteTransazione(transazioneId){
+function deleteTransazione(transazioneUUID){
 //chiamo il server---------------	
-var response=fire_ajax_pathvar("/api/transazione/delete"+transazioneId);
+var response=fire_ajax_pathvar("/api/transazione/delete"+transazioneUUID);
 var response_object=response.responseJSON;
 
 //elaboro la risposta in formato testo
@@ -67,7 +67,7 @@ $.each(response_object.lista_movimenti, function(i, transazione) {
    $("#table-feedback").append(riga);
     });	
 }
-function deleteTransazione(uuid){
+function cancellaTransazione(uuid){
 	alert(uuid);
 	
  var risposta= fire_ajax_pathvar("api/transazione/delete/"+uuid);
