@@ -90,8 +90,7 @@ nav {
     <td> <c:out value="${transazione.quantita}"/></td>
     <td> <c:out value="${transazione.taglio*transazione.quantita}"/></td>
     <td><a href="elimina-transazione?uuid=<c:out value="${transazione.UUID}"/>"> <input class='btn btn-danger' type="button"  value="Delete"/></a>
-    <button onClick='cancellaTransazione("${transazione.UUID}") type='button' class='btn btn-danger'>delete</button>
-    
+    <button onClick='cancellaTransazione(\""+transazione.UUID+"\")' type='button' class='btn btn-danger'>delete</button>
     </td>
      
    </tr>     
@@ -100,16 +99,14 @@ nav {
  
  <div align = center>
   <form name = "form" method =GET>
-  <h1>	
-<label for= "nome"></label><br></h1>
-<input type ="text" placeholder="nominativo" name ="nome" value="" /><br>
+ 
  
  
   <div align = center>
  <h3>	
 
-<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :</span>
 
+<span class="d-block p-2 bg-dark text-white" id="saldo" >Saldo :<c:out value="${saldo}"/> </span>
 
 
 <footer>

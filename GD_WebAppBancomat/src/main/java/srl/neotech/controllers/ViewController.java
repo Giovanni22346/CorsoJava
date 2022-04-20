@@ -1,11 +1,12 @@
 package srl.neotech.controllers;
 
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import org.apache.taglibs.standard.lang.jstl.EqualsOperator;
 import org.springframework.stereotype.Controller;
@@ -98,17 +99,16 @@ public class ViewController {
 	public String lista_transazioni(Model model) {
 		ResponseListaTransazioni response= new ResponseListaTransazioni();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
+		Integer valoreSaldo= new Integer(0);
+		for (TransazioneBancomat mov: SingletonTransazioneBancomat.getInstance().getListaTransazioni()) {
+			if (mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo= valoreSaldo+(mov.getQuantita()*mov.getTaglio());
+			if (mov.getOperazione().equals(TipologiaMovimento.PRELIEVO)) valoreSaldo = valoreSaldo-(mov.getQuantita()*mov.getTaglio());
+			
+		
+		}
 		
 		
-//		Integer valoreSaldo= new Integer(0);
-//		for (TransazioneBancomat mov: SingletonTransazioneBancomat.getInstance().getListaTransazioni());{
-//			TransazioneBancomat mov = null;
-//			if (mov.getOperazione().equals(TipologiaMovimento.VERSAMENTO)) valoreSaldo= valoreSaldo+(mov.getQuantita()*mov.getTaglio());
-//			if (mov.getOperazione().equals(TipologiaMovimento.PRELIEVO)) valoreSaldo = valoreSaldo-(mov.getQuantita()*mov.getTaglio());
-//		}
-//		
-//		
-//		model.addAttribute("Saldo",valoreSaldo);
+		model.addAttribute("saldo",valoreSaldo);
 		model.addAttribute("lista_transazioni", response);
 	
 	
