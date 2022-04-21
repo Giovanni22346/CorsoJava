@@ -37,16 +37,14 @@ public class APIController {
 		
 		@ResponseBody
 		@GetMapping(value = "/api/transazione/delete{uuid}",produces = MediaType.APPLICATION_JSON_VALUE)
-		public ResponseListaTransazioni Delete(@PathVariable("uuid") String UUID_transazioni) {
-			ResponseListaTransazioni response = new ResponseListaTransazioni();
-			SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazioneRequest->transazioneRequest.getUUID().equals(UUID_transazioni));
+		public ResponseListaTransazioni Delete(@PathVariable("uuid") String uuid) {	
+		SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazioneRequest->transazioneRequest.getUUID().equals(uuid));
 			
 			
-			
-		    response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
+		ResponseListaTransazioni response = new ResponseListaTransazioni();
+	    response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
 		    		
-			return response;
-		
+		return response;
 		
 		
 	}

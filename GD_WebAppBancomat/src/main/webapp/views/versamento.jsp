@@ -35,6 +35,7 @@ nav {
 <div align="center">
 <div class="container mt-3">
   <h1>BANCOMAT</h1>
+  <ul id="versamento"</ul>
   <h3>La mia banca e' differente</h3>
   <ul class="nav nav-pills nav-justified">
   
@@ -53,7 +54,8 @@ nav {
   </ul>
  
 </div></div>
- 
+ <div id="text-feedback"></div>
+</div>
 <tr></tr>
 
 <form:form id="form_submit" action="generaTransazioni" method="get" modelAttribute="transazione">
@@ -61,12 +63,12 @@ nav {
 <div align="center">
   <h1>	
 <label for= "nome"></label><br></h1>
-<input id ="nominativo" path= "nominativo" type ="text" placeholder="nominativo" name ="nome" value="" /><br>
+<input type ="text" id ="nominativo" path= "nominativo"  placeholder="Nominativo" name ="nome" value="" /><br>
 
 
 <div class="p-2">
 <div align="left">
- <select class="form-select" aria-label="Default select example">
+ <select class="form-select" id= "taglio" aria-label="Default select example">
  
   <option selected>Taglio</option>
   <option value="1">10</option>
@@ -77,12 +79,12 @@ nav {
 <label for="customRange1" style="color:black;" class="form-label">Quantitativo Banconote:</label>
 
 <span id="importo" style="font-weight:bold;color:black;">50</span>
-<input type="range" class="slidecontainer" min="0" max="100" step="1" id="customRange1" >
+<input type="range" class="slidecontainer" min="0" max="100" step="1" id="rangeValore" >
 
 
 <script>
-var slideCol = document.getElementById("customRange1");
-var y = document.getElementById("valoreNumericoImporto");
+var slideCol = document.getElementById("rangeValore");
+var y = document.getElementById("importo");
 y.innerHTML = slideCol.value;
 slideCol.oninput = function() {
     y.innerHTML = this.value;
@@ -94,7 +96,7 @@ slideCol.oninput = function() {
 
 <!-- Invio Importo -->
 
-<button  type="submit" id="bth-search" class="btn btn-primary btn-lg float-right">Invio</button><br>
+<button  type="submit" id="invio-versamento" onclick = "invioVersamento" class="btn btn-primary btn-lg float-right">Invio</button><br>
 
 
 
