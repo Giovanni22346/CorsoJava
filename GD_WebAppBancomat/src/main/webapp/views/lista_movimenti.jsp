@@ -61,7 +61,7 @@ nav {
      TD i campi in orrizontale
 -->
 
-<table class="table table-dark">
+<table id="tabella_dati"  class="table table-dark">
 
    <tr style="text-align:center">
    
@@ -80,7 +80,7 @@ nav {
 <c:set var="numTransazioni" scope="session" value="0"/>
 <c:forEach var="transazione" items="${lista_transazioni.listaTransazioniRestituite}">
  <c:set var="numTransazioni" scope="session" value="${numTransazioni+1}"/>
-    <tr style="text-align:center">
+    <tr class ="mia" style="text-align:center">
     
     <td> <c:out value="${transazione.UUID}"/></td>
     <td> <c:out value="${transazione.dataEora}"/></td>

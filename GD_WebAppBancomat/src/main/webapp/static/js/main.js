@@ -41,7 +41,7 @@ $(document).ready(function () {
 
 function deleteTransazioneBancomat(transazioneUUID){
 //chiamo il server---------------	
-var response=fire_ajax_pathvar("/api/delete"+transazioneUUID);
+var response=fire_ajax_pathvar("api/delete/"+transazioneUUID);
 var response_object=response.responseJSON;
 
 //elaboro la risposta in formato testo
@@ -49,21 +49,22 @@ var response_object=response.responseJSON;
 $('#text-feedback').text(response_text);
     
 
-$("#table-feedback tr.mia").remove();
+$("#tabella_dati tr.mia").remove();
 
  //elaboro la risposta in formato ogetto
 $.each(response_object.listaTransazioniRestituite, function(i, transazione) {
    var riga="<tr class='mia'>";
-	     riga+="<td>"+transazione.UUID+"</td>";
+	     riga+="<td>"+transazione.uuid+"</td>";
 	     riga+="<td>"+transazione.dataEora+"</td>";
 	     riga+="<td>"+transazione.operazione+"</td>";
 		 riga+="<td>"+transazione.nominativo+"</td>";
 		 riga+="<td>"+transazione.taglio+"</td>";
          riga+="<td>"+transazione.quantita+"</td>";
          riga+="<td>"+transazione.totale+"</td>";
-		 riga+="<td><button onClick='deleteTransazioneBancomat(\""+transazione.UUID+"\")' type='button' class='btn btn-danger'>delete</button></td>";
-   riga+="<td><</td>";
+		riga+="<td><button onClick='deleteTransazioneBancomat("+transazione.UUID+")' type='button' class='btn btn-danger'>Delete Ajax</button></td>";
+	//	 riga+="<td><button onClick='deleteTransazioneBancomat(\""+transazione.UUID+"\")' type='button' class='btn btn-danger'>delete</button></td>";
+ 
    riga+="</tr>";
-   $("#table-feedback").append(riga);
+   $("#tabella_dati").append(riga);
     });	
 }
