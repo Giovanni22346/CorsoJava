@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import srl.neotech.model.SingletonTransazioneBancomat;
 import srl.neotech.model.TipologiaMovimento;
 import srl.neotech.model.TransazioneBancomat;
-import srl.neotech.requestresponse.ResponseListaTransazioni;
 import srl.neotech.requestresponse.ListaTransazioniResponse;
+import srl.neotech.requestresponse.ResponseSearchTransazione;
 import srl.neotech.requestresponse.RequestEliminaTransazione;
 
 
@@ -87,7 +87,7 @@ public class ViewController {
 		
 		SingletonTransazioneBancomat.getInstance().getListaTransazioni().removeIf(transazione->transazione.getUUID().equals(uuidDaEliminare.getUuid()));
 		//return lista
-		ResponseListaTransazioni response=new ResponseListaTransazioni();
+		ListaTransazioniResponse response=new ListaTransazioniResponse();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
 		model.addAttribute("lista_transazioni", response);
 		return "lista_movimenti";
@@ -97,7 +97,7 @@ public class ViewController {
 
 	@RequestMapping(value="/lista_movimenti", method = RequestMethod.GET)
 	public String lista_transazioni(Model model) {
-		ResponseListaTransazioni response= new ResponseListaTransazioni();
+		ListaTransazioniResponse response= new ListaTransazioniResponse();
 		response.setListaTransazioniRestituite(SingletonTransazioneBancomat.getInstance().getListaTransazioni());
 		Integer valoreSaldo= new Integer(0);
 		for (TransazioneBancomat mov: SingletonTransazioneBancomat.getInstance().getListaTransazioni()) {

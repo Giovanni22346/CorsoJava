@@ -4,14 +4,14 @@ import srl.neotech.model.TransazioneBancomat;
 
 public class RequestTransazione {
 
-	TransazioneBancomat transazioneRequest;
+	TransazioneBancomat transazione;
 
-	public TransazioneBancomat getTransazioneRequest() {
-		return transazioneRequest;
+	public TransazioneBancomat getTransazione() {
+		return transazione;
 	}
 
-	public void setTransazioneRequest(TransazioneBancomat transazioneRequest) {
-		this.transazioneRequest = transazioneRequest;
+	public void setTransazione(TransazioneBancomat transazione) {
+		this.transazione = transazione;
 	}
 	
 	

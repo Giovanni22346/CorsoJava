@@ -6,15 +6,20 @@ import srl.neotech.model.TransazioneBancomat;
 
 public class ListaTransazioniResponse {
 
-	ArrayList<TransazioneBancomat> listaTransazioniResponse = new ArrayList<TransazioneBancomat>();
+	
+	ArrayList<TransazioneBancomat> listaTransazioniRestituite = new ArrayList<TransazioneBancomat>();
+	
+	
 
-	public ArrayList<TransazioneBancomat> getListaTransazioniResponse() {
-		return listaTransazioniResponse;
+
+	public ArrayList<TransazioneBancomat> getListaTransazioniRestituite() {
+		return listaTransazioniRestituite;
 	}
 
-	public void setListaTransazioniResponse(ArrayList<TransazioneBancomat> listaTransazioniResponse) {
-		this.listaTransazioniResponse = listaTransazioniResponse;
+	public void setListaTransazioniRestituite(ArrayList<TransazioneBancomat> listaTransazioniRestituite) {
+		this.listaTransazioniRestituite = listaTransazioniRestituite;
 	}
+
 	
 	
 	
